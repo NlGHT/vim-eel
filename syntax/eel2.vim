@@ -19,7 +19,7 @@ syn match eel2Operator "\v[=|&~?:*/^%+-]"
 syn match eel2Operator "\v[|&~?:*/^%+-]{1}\="
 syn match eel2Operator "\v\={2,3}"
 syn match eel2Operator "\v!\={1,2}"
-syn match eel2Operator "\v[<>|&]{2}"
+syn match eel2Operator "\v[<>]"
 
 syn match eel2Number "\v<\d+\.?\d*"
 syn match eel2Number "\v<(0x|\$x)[0-F0-f]+>"
