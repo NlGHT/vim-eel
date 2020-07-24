@@ -8,7 +8,7 @@ endif
 
 syn keyword eel2Keyword function local instance this
 syn keyword eel2Constant reaper
-syn keyword	eelRepeat while loop
+syn keyword eelRepeat while loop
 
 " Match all functions (including user made ones)
 " Can start with underscore (_) but not with number, however
