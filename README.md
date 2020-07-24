@@ -4,12 +4,13 @@
 
 ## Installation
 Add this to your plugin manager like such:
-For my version:
+
+For latest development version (mine):
 ```vim
 Plug 'NlGHT/vim-eel2'
 ```
 
-Upstream:
+Upstream (and perhaps more stable but may be missing some features):
 ```vim
 Plug 'TristanCrawford/vim-eel2'
 ```
