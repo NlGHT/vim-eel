@@ -1,7 +1,7 @@
 " Vim indent file
 " Language: EEL2
 " Maintainer: Night, see https://github.com/NlGHT
-" Last Change: 2020 Feb 14
+" Last Change: 2021 Apr 12
 " Acknowledgement: Inspired by Vim-Go (https://github.com/fatih/vim-go)
 
 if exists("b:did_indent")
@@ -36,7 +36,7 @@ function! EELIndent(lnum) abort
 
   let ind = previ
 
-  if prevl =~ '(\s*$'
+  if prevl =~ '[(,]\s*$'
     " Previous line opened a block
     let ind += shiftwidth()
   endif
