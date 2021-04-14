@@ -13,7 +13,7 @@ syn keyword eelRepeat while loop
 " Match all functions (including user made ones)
 " Can start with underscore (_) but not with number, however
 " it can have a number in it.
-syn match eel2Function /\v<[a-zA-Z_][[:alnum:]_.]*\ze(\s*\()/
+syn match eel2Function /\v<[a-zA-Z_][[:alnum:]_]*\ze(\s*\()/
 
 syn match eel2Operator "\v[=|&~?:*/^%+-]"
 syn match eel2Operator "\v[|&~?:*/^%+-]{1}\="
