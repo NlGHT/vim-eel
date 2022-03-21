@@ -1232,7 +1232,7 @@ snippet MIDI_SetAllEvts "MIDI_SetAllEvts(MediaItem_Take take, 'buf')"
 MIDI_SetAllEvts(${1:MediaItem_Take take}, ${2:"buf"})
 endsnippet
 snippet MIDI_SetCC "MIDI_SetCC(MediaItem_Take take, int ccidx, optional bool selectedIn, optional bool mutedIn, optional ppqposIn, optional int chanmsgIn, optional int chanIn, optional int msg2In, optional int msg3In, optional bool noSortIn)"
-MIDI_SetCC(${10:optional bool noSortIn}, ${1:MediaItem_Take take}, ${2:int ccidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int chanmsgIn}, ${7:optional int chanIn}, ${8:optional int msg2In}, ${9:optional int msg3In})
+MIDI_SetCC(${1:MediaItem_Take take}, ${2:int ccidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int chanmsgIn}, ${7:optional int chanIn}, ${8:optional int msg2In}, ${9:optional int msg3In}, ${10:optional bool noSortIn})
 endsnippet
 snippet MIDI_SetCCShape "MIDI_SetCCShape(MediaItem_Take take, int ccidx, int shape, beztension, optional bool noSortIn)"
 MIDI_SetCCShape(${1:MediaItem_Take take}, ${2:int ccidx}, ${3:int shape}, ${4:beztension}, ${5:optional bool noSortIn})
@@ -1244,7 +1244,7 @@ snippet MIDI_SetItemExtents "MIDI_SetItemExtents(MediaItem item, startQN, endQN)
 MIDI_SetItemExtents(${1:MediaItem item}, ${2:startQN}, ${3:endQN})
 endsnippet
 snippet MIDI_SetNote "MIDI_SetNote(MediaItem_Take take, int noteidx, optional bool selectedIn, optional bool mutedIn, optional startppqposIn, optional endppqposIn, optional int chanIn, optional int pitchIn, optional int velIn, optional bool noSortIn)"
-MIDI_SetNote(${10:optional bool noSortIn}, ${1:MediaItem_Take take}, ${2:int noteidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional startppqposIn}, ${6:optional endppqposIn}, ${7:optional int chanIn}, ${8:optional int pitchIn}, ${9:optional int velIn})
+MIDI_SetNote(${1:MediaItem_Take take}, ${2:int noteidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional startppqposIn}, ${6:optional endppqposIn}, ${7:optional int chanIn}, ${8:optional int pitchIn}, ${9:optional int velIn}, ${10:optional bool noSortIn})
 endsnippet
 snippet MIDI_SetTextSysexEvt "MIDI_SetTextSysexEvt(MediaItem_Take take, int textsyxevtidx, optional bool selectedIn, optional bool mutedIn, optional ppqposIn, optional int typeIn, optional 'msg', optional bool noSortIn)"
 MIDI_SetTextSysexEvt(${1:MediaItem_Take take}, ${2:int textsyxevtidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int typeIn}, ${7:optional "msg"}, ${8:optional bool noSortIn})
@@ -2126,7 +2126,7 @@ snippet gfx_arc "gfx_arc(x,y,r,ang1,ang2[,antialias])"
 gfx_arc(${1:x}, ${2:y}, ${3:r}, ${4:ang1}, ${5:ang2[}, ${6:antialias]})
 endsnippet
 snippet gfx_blit "gfx_blit(source[, scale, rotation, srcx, srcy, srcw, srch, destx, desty, destw, desth, rotxoffs, rotyoffs])"
-gfx_blit(${10:destw}, ${11:desth}, ${12:rotxoffs}, ${13:rotyoffs]}, ${1:source[}, ${2:scale}, ${3:rotation}, ${4:srcx}, ${5:srcy}, ${6:srcw}, ${7:srch}, ${8:destx}, ${9:desty})
+gfx_blit(${1:source[}, ${2:scale}, ${3:rotation}, ${4:srcx}, ${5:srcy}, ${6:srcw}, ${7:srch}, ${8:destx}, ${9:desty}, ${10:destw}, ${11:desth}, ${12:rotxoffs}, ${13:rotyoffs]})
 endsnippet
 snippet gfx_blitext "gfx_blitext(source,coordinatelist,rotation)"
 gfx_blitext(${1:source}, ${2:coordinatelist}, ${3:rotation})
@@ -2141,7 +2141,7 @@ snippet gfx_clienttoscreen "gfx_clienttoscreen(x,y)"
 gfx_clienttoscreen(${1:x}, ${2:y})
 endsnippet
 snippet gfx_deltablit "gfx_deltablit(srcimg,srcs,srct,srcw,srch,destx,desty,destw,desth,dsdx,dtdx,dsdy,dtdy,dsdxdy,dtdxdy[,usecliprect=1])"
-gfx_deltablit(${10:dsdx}, ${11:dtdx}, ${12:dsdy}, ${13:dtdy}, ${14:dsdxdy}, ${15:dtdxdy[}, ${16:usecliprect=1]}, ${1:srcimg}, ${2:srcs}, ${3:srct}, ${4:srcw}, ${5:srch}, ${6:destx}, ${7:desty}, ${8:destw}, ${9:desth})
+gfx_deltablit(${1:srcimg}, ${2:srcs}, ${3:srct}, ${4:srcw}, ${5:srch}, ${6:destx}, ${7:desty}, ${8:destw}, ${9:desth}, ${10:dsdx}, ${11:dtdx}, ${12:dsdy}, ${13:dtdy}, ${14:dsdxdy}, ${15:dtdxdy[}, ${16:usecliprect=1]})
 endsnippet
 snippet gfx_dock "gfx_dock(v[,wx,wy,ww,wh])"
 gfx_dock(${1:v[}, ${2:wx}, ${3:wy}, ${4:ww}, ${5:wh]})
@@ -2171,7 +2171,7 @@ snippet gfx_getpixel "gfx_getpixel(r,g,b)"
 gfx_getpixel(${1:r}, ${2:g}, ${3:b})
 endsnippet
 snippet gfx_gradrect "gfx_gradrect(x,y,w,h, r,g,b,a[, drdx, dgdx, dbdx, dadx, drdy, dgdy, dbdy, dady])"
-gfx_gradrect(${10:dgdx}, ${11:dbdx}, ${12:dadx}, ${13:drdy}, ${14:dgdy}, ${15:dbdy}, ${16:dady]}, ${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:r}, ${6:g}, ${7:b}, ${8:a[}, ${9:drdx})
+gfx_gradrect(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:r}, ${6:g}, ${7:b}, ${8:a[}, ${9:drdx}, ${10:dgdx}, ${11:dbdx}, ${12:dadx}, ${13:drdy}, ${14:dgdy}, ${15:dbdy}, ${16:dady]})
 endsnippet
 snippet gfx_init "gfx_init('name'[,width,height,dockstate,xpos,ypos])"
 gfx_init(${1:"name"[}, ${2:width}, ${3:height}, ${4:dockstate}, ${5:xpos}, ${6:ypos]})
@@ -2192,7 +2192,7 @@ snippet gfx_measurestr "gfx_measurestr('str',&w,&h)"
 gfx_measurestr(${1:"str"}, ${2:&w}, ${3:&h})
 endsnippet
 snippet gfx_muladdrect "gfx_muladdrect(x,y,w,h,mul_r,mul_g,mul_b[,mul_a,add_r,add_g,add_b,add_a])"
-gfx_muladdrect(${10:add_g}, ${11:add_b}, ${12:add_a]}, ${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:mul_r}, ${6:mul_g}, ${7:mul_b[}, ${8:mul_a}, ${9:add_r})
+gfx_muladdrect(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:mul_r}, ${6:mul_g}, ${7:mul_b[}, ${8:mul_a}, ${9:add_r}, ${10:add_g}, ${11:add_b}, ${12:add_a]})
 endsnippet
 snippet gfx_printf "gfx_printf('format'[, ...])"
 gfx_printf(${1:"format"[}, ${2:...]})
