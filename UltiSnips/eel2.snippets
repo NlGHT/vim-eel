@@ -58,6 +58,9 @@ endsnippet
 snippet BypassFxAllTracks "BypassFxAllTracks(int bypass)"
 BypassFxAllTracks(${1:int bypass})
 endsnippet
+snippet CalculateNormalization "CalculateNormalization(PCM_source source, int normalizeTo, normalizeTarget, normalizeStart, normalizeEnd)"
+CalculateNormalization(${1:PCM_source source}, ${2:int normalizeTo}, ${3:normalizeTarget}, ${4:normalizeStart}, ${5:normalizeEnd})
+endsnippet
 snippet ClearAllRecArmed "ClearAllRecArmed()"
 ClearAllRecArmed()
 endsnippet
@@ -394,17 +397,17 @@ endsnippet
 snippet EnumTrackMIDIProgramNamesEx "EnumTrackMIDIProgramNamesEx(ReaProject proj, MediaTrack track, int programNumber, #programName)"
 EnumTrackMIDIProgramNamesEx(${1:ReaProject proj}, ${2:MediaTrack track}, ${3:int programNumber}, ${4:#programName})
 endsnippet
-snippet Envelope_Evaluate "Envelope_Evaluate(TrackEnvelope envelope, time, samplerate, int samplesRequested, optional &value, optional &dVdS, optional &ddVdS, optional &dddVdS)"
-Envelope_Evaluate(${1:TrackEnvelope envelope}, ${2:time}, ${3:samplerate}, ${4:int samplesRequested}, ${5:optional &value}, ${6:optional &dVdS}, ${7:optional &ddVdS}, ${8:optional &dddVdS})
+snippet Envelope_Evaluate "Envelope_Evaluate(TrackEnvelope envelope, time, samplerate, int samplesRequested, &value, &dVdS, &ddVdS, &dddVdS)"
+Envelope_Evaluate(${1:TrackEnvelope envelope}, ${2:time}, ${3:samplerate}, ${4:int samplesRequested}, ${5:&value}, ${6:&dVdS}, ${7:&ddVdS}, ${8:&dddVdS})
 endsnippet
 snippet Envelope_FormatValue "Envelope_FormatValue(TrackEnvelope env, value, #buf)"
 Envelope_FormatValue(${1:TrackEnvelope env}, ${2:value}, ${3:#buf})
 endsnippet
-snippet Envelope_GetParentTake "Envelope_GetParentTake(TrackEnvelope env, optional int &index, optional int &index2)"
-Envelope_GetParentTake(${1:TrackEnvelope env}, ${2:optional int &index}, ${3:optional int &index2})
+snippet Envelope_GetParentTake "Envelope_GetParentTake(TrackEnvelope env, int &index, int &index2)"
+Envelope_GetParentTake(${1:TrackEnvelope env}, ${2:int &index}, ${3:int &index2})
 endsnippet
-snippet Envelope_GetParentTrack "Envelope_GetParentTrack(TrackEnvelope env, optional int &index, optional int &index2)"
-Envelope_GetParentTrack(${1:TrackEnvelope env}, ${2:optional int &index}, ${3:optional int &index2})
+snippet Envelope_GetParentTrack "Envelope_GetParentTrack(TrackEnvelope env, int &index, int &index2)"
+Envelope_GetParentTrack(${1:TrackEnvelope env}, ${2:int &index}, ${3:int &index2})
 endsnippet
 snippet Envelope_SortPoints "Envelope_SortPoints(TrackEnvelope envelope)"
 Envelope_SortPoints(${1:TrackEnvelope envelope})
@@ -490,14 +493,14 @@ endsnippet
 snippet GetDisplayedMediaItemColor2 "GetDisplayedMediaItemColor2(MediaItem item, MediaItem_Take take)"
 GetDisplayedMediaItemColor2(${1:MediaItem item}, ${2:MediaItem_Take take})
 endsnippet
-snippet GetEnvelopeInfo_Value "GetEnvelopeInfo_Value(TrackEnvelope tr, 'parmname')"
-GetEnvelopeInfo_Value(${1:TrackEnvelope tr}, ${2:"parmname"})
+snippet GetEnvelopeInfo_Value "GetEnvelopeInfo_Value(TrackEnvelope env, 'parmname')"
+GetEnvelopeInfo_Value(${1:TrackEnvelope env}, ${2:"parmname"})
 endsnippet
 snippet GetEnvelopeName "GetEnvelopeName(TrackEnvelope env, #buf)"
 GetEnvelopeName(${1:TrackEnvelope env}, ${2:#buf})
 endsnippet
-snippet GetEnvelopePoint "GetEnvelopePoint(TrackEnvelope envelope, int ptidx, optional &time, optional &value, optional int &shape, optional &tension, optional bool &selected)"
-GetEnvelopePoint(${1:TrackEnvelope envelope}, ${2:int ptidx}, ${3:optional &time}, ${4:optional &value}, ${5:optional int &shape}, ${6:optional &tension}, ${7:optional bool &selected})
+snippet GetEnvelopePoint "GetEnvelopePoint(TrackEnvelope envelope, int ptidx, &time, &value, int &shape, &tension, bool &selected)"
+GetEnvelopePoint(${1:TrackEnvelope envelope}, ${2:int ptidx}, ${3:&time}, ${4:&value}, ${5:int &shape}, ${6:&tension}, ${7:bool &selected})
 endsnippet
 snippet GetEnvelopePointByTime "GetEnvelopePointByTime(TrackEnvelope envelope, time)"
 GetEnvelopePointByTime(${1:TrackEnvelope envelope}, ${2:time})
@@ -505,8 +508,8 @@ endsnippet
 snippet GetEnvelopePointByTimeEx "GetEnvelopePointByTimeEx(TrackEnvelope envelope, int autoitem_idx, time)"
 GetEnvelopePointByTimeEx(${1:TrackEnvelope envelope}, ${2:int autoitem_idx}, ${3:time})
 endsnippet
-snippet GetEnvelopePointEx "GetEnvelopePointEx(TrackEnvelope envelope, int autoitem_idx, int ptidx, optional &time, optional &value, optional int &shape, optional &tension, optional bool &selected)"
-GetEnvelopePointEx(${1:TrackEnvelope envelope}, ${2:int autoitem_idx}, ${3:int ptidx}, ${4:optional &time}, ${5:optional &value}, ${6:optional int &shape}, ${7:optional &tension}, ${8:optional bool &selected})
+snippet GetEnvelopePointEx "GetEnvelopePointEx(TrackEnvelope envelope, int autoitem_idx, int ptidx, &time, &value, int &shape, &tension, bool &selected)"
+GetEnvelopePointEx(${1:TrackEnvelope envelope}, ${2:int autoitem_idx}, ${3:int ptidx}, ${4:&time}, ${5:&value}, ${6:int &shape}, ${7:&tension}, ${8:bool &selected})
 endsnippet
 snippet GetEnvelopeScalingMode "GetEnvelopeScalingMode(TrackEnvelope env)"
 GetEnvelopeScalingMode(${1:TrackEnvelope env})
@@ -877,6 +880,9 @@ endsnippet
 snippet GetThemeColor "GetThemeColor('ini_key', int flags)"
 GetThemeColor(${1:"ini_key"}, ${2:int flags})
 endsnippet
+snippet GetThingFromPoint "GetThingFromPoint(int screen_x, int screen_y, #info)"
+GetThingFromPoint(${1:int screen_x}, ${2:int screen_y}, ${3:#info})
+endsnippet
 snippet GetToggleCommandState "GetToggleCommandState(int command_id)"
 GetToggleCommandState(${1:int command_id})
 endsnippet
@@ -916,8 +922,8 @@ endsnippet
 snippet GetTrackMediaItem "GetTrackMediaItem(MediaTrack tr, int itemidx)"
 GetTrackMediaItem(${1:MediaTrack tr}, ${2:int itemidx})
 endsnippet
-snippet GetTrackMIDILyrics "GetTrackMIDILyrics(MediaTrack track, int flag, #bufWant)"
-GetTrackMIDILyrics(${1:MediaTrack track}, ${2:int flag}, ${3:#bufWant})
+snippet GetTrackMIDILyrics "GetTrackMIDILyrics(MediaTrack track, int flag, #buf)"
+GetTrackMIDILyrics(${1:MediaTrack track}, ${2:int flag}, ${3:#buf})
 endsnippet
 snippet GetTrackMIDINoteName "GetTrackMIDINoteName(#retval, int track, int pitch, int chan)"
 GetTrackMIDINoteName(${1:#retval}, ${2:int track}, ${3:int pitch}, ${4:int chan})
@@ -973,8 +979,8 @@ endsnippet
 snippet GetTrackUIVolPan "GetTrackUIVolPan(MediaTrack track, &volume, &pan)"
 GetTrackUIVolPan(${1:MediaTrack track}, ${2:&volume}, ${3:&pan})
 endsnippet
-snippet GetUnderrunTime "GetUnderrunTime(optional unsigned int &audio_xrun, optional unsigned int &media_xrun, optional unsigned int &curtime)"
-GetUnderrunTime(${1:optional unsigned int &audio_xrun}, ${2:optional unsigned int &media_xrun}, ${3:optional unsigned int &curtime})
+snippet GetUnderrunTime "GetUnderrunTime(unsigned int &audio_xrun, unsigned int &media_xrun, unsigned int &curtime)"
+GetUnderrunTime(${1:unsigned int &audio_xrun}, ${2:unsigned int &media_xrun}, ${3:unsigned int &curtime})
 endsnippet
 snippet GetUserFileNameForRead "GetUserFileNameForRead(#filenameNeed4096, 'title', 'defext')"
 GetUserFileNameForRead(${1:#filenameNeed4096}, ${2:"title"}, ${3:"defext"})
@@ -1189,6 +1195,9 @@ endsnippet
 snippet MIDI_GetProjTimeFromPPQPos "MIDI_GetProjTimeFromPPQPos(MediaItem_Take take, ppqpos)"
 MIDI_GetProjTimeFromPPQPos(${1:MediaItem_Take take}, ${2:ppqpos})
 endsnippet
+snippet MIDI_GetRecentInputEvent "MIDI_GetRecentInputEvent(int idx, #buf, int &ts, int &devIdx, &projPos, int &projLoopCnt)"
+MIDI_GetRecentInputEvent(${1:int idx}, ${2:#buf}, ${3:int &ts}, ${4:int &devIdx}, ${5:&projPos}, ${6:int &projLoopCnt})
+endsnippet
 snippet MIDI_GetScale "MIDI_GetScale(MediaItem_Take take, int &root, int &scale, #name)"
 MIDI_GetScale(${1:MediaItem_Take take}, ${2:int &root}, ${3:int &scale}, ${4:#name})
 endsnippet
@@ -1197,6 +1206,9 @@ MIDI_GetTextSysexEvt(${1:MediaItem_Take take}, ${2:int textsyxevtidx}, ${3:optio
 endsnippet
 snippet MIDI_GetTrackHash "MIDI_GetTrackHash(MediaTrack track, bool notesonly, #hash)"
 MIDI_GetTrackHash(${1:MediaTrack track}, ${2:bool notesonly}, ${3:#hash})
+endsnippet
+snippet midi_init "midi_init(int force_reinit_input, int force_reinit_output)"
+midi_init(${1:int force_reinit_input}, ${2:int force_reinit_output})
 endsnippet
 snippet MIDI_InsertCC "MIDI_InsertCC(MediaItem_Take take, bool selected, bool muted, ppqpos, int chanmsg, int chan, int msg2, int msg3)"
 MIDI_InsertCC(${1:MediaItem_Take take}, ${2:bool selected}, ${3:bool muted}, ${4:ppqpos}, ${5:int chanmsg}, ${6:int chan}, ${7:int msg2}, ${8:int msg3})
@@ -1220,7 +1232,7 @@ snippet MIDI_SetAllEvts "MIDI_SetAllEvts(MediaItem_Take take, 'buf')"
 MIDI_SetAllEvts(${1:MediaItem_Take take}, ${2:"buf"})
 endsnippet
 snippet MIDI_SetCC "MIDI_SetCC(MediaItem_Take take, int ccidx, optional bool selectedIn, optional bool mutedIn, optional ppqposIn, optional int chanmsgIn, optional int chanIn, optional int msg2In, optional int msg3In, optional bool noSortIn)"
-MIDI_SetCC(${1:MediaItem_Take take}, ${2:int ccidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int chanmsgIn}, ${7:optional int chanIn}, ${8:optional int msg2In}, ${9:optional int msg3In}, ${10:optional bool noSortIn})
+MIDI_SetCC(${10:optional bool noSortIn}, ${1:MediaItem_Take take}, ${2:int ccidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int chanmsgIn}, ${7:optional int chanIn}, ${8:optional int msg2In}, ${9:optional int msg3In})
 endsnippet
 snippet MIDI_SetCCShape "MIDI_SetCCShape(MediaItem_Take take, int ccidx, int shape, beztension, optional bool noSortIn)"
 MIDI_SetCCShape(${1:MediaItem_Take take}, ${2:int ccidx}, ${3:int shape}, ${4:beztension}, ${5:optional bool noSortIn})
@@ -1232,13 +1244,16 @@ snippet MIDI_SetItemExtents "MIDI_SetItemExtents(MediaItem item, startQN, endQN)
 MIDI_SetItemExtents(${1:MediaItem item}, ${2:startQN}, ${3:endQN})
 endsnippet
 snippet MIDI_SetNote "MIDI_SetNote(MediaItem_Take take, int noteidx, optional bool selectedIn, optional bool mutedIn, optional startppqposIn, optional endppqposIn, optional int chanIn, optional int pitchIn, optional int velIn, optional bool noSortIn)"
-MIDI_SetNote(${1:MediaItem_Take take}, ${2:int noteidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional startppqposIn}, ${6:optional endppqposIn}, ${7:optional int chanIn}, ${8:optional int pitchIn}, ${9:optional int velIn}, ${10:optional bool noSortIn})
+MIDI_SetNote(${10:optional bool noSortIn}, ${1:MediaItem_Take take}, ${2:int noteidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional startppqposIn}, ${6:optional endppqposIn}, ${7:optional int chanIn}, ${8:optional int pitchIn}, ${9:optional int velIn})
 endsnippet
 snippet MIDI_SetTextSysexEvt "MIDI_SetTextSysexEvt(MediaItem_Take take, int textsyxevtidx, optional bool selectedIn, optional bool mutedIn, optional ppqposIn, optional int typeIn, optional 'msg', optional bool noSortIn)"
 MIDI_SetTextSysexEvt(${1:MediaItem_Take take}, ${2:int textsyxevtidx}, ${3:optional bool selectedIn}, ${4:optional bool mutedIn}, ${5:optional ppqposIn}, ${6:optional int typeIn}, ${7:optional "msg"}, ${8:optional bool noSortIn})
 endsnippet
 snippet MIDI_Sort "MIDI_Sort(MediaItem_Take take)"
 MIDI_Sort(${1:MediaItem_Take take})
+endsnippet
+snippet MIDIEditor_EnumTakes "MIDIEditor_EnumTakes(HWND midieditor, int takeindex, bool editable_only)"
+MIDIEditor_EnumTakes(${1:HWND midieditor}, ${2:int takeindex}, ${3:bool editable_only})
 endsnippet
 snippet MIDIEditor_GetActive "MIDIEditor_GetActive()"
 MIDIEditor_GetActive()
@@ -1335,6 +1350,9 @@ PCM_Sink_GetExtension(${1:#retval}, ${2:"data"})
 endsnippet
 snippet PCM_Sink_ShowConfig "PCM_Sink_ShowConfig('cfg', HWND hwndParent)"
 PCM_Sink_ShowConfig(${1:"cfg"}, ${2:HWND hwndParent})
+endsnippet
+snippet PCM_Source_BuildPeaks "PCM_Source_BuildPeaks(PCM_source src, int mode)"
+PCM_Source_BuildPeaks(${1:PCM_source src}, ${2:int mode})
 endsnippet
 snippet PCM_Source_CreateFromFile "PCM_Source_CreateFromFile('filename')"
 PCM_Source_CreateFromFile(${1:"filename"})
@@ -1639,8 +1657,8 @@ endsnippet
 snippet TakeFX_GetFXName "TakeFX_GetFXName(MediaItem_Take take, int fx, #buf)"
 TakeFX_GetFXName(${1:MediaItem_Take take}, ${2:int fx}, ${3:#buf})
 endsnippet
-snippet TakeFX_GetIOSize "TakeFX_GetIOSize(MediaItem_Take take, int fx, optional int &inputPins, optional int &outputPins)"
-TakeFX_GetIOSize(${1:MediaItem_Take take}, ${2:int fx}, ${3:optional int &inputPins}, ${4:optional int &outputPins})
+snippet TakeFX_GetIOSize "TakeFX_GetIOSize(MediaItem_Take take, int fx, int &inputPins, int &outputPins)"
+TakeFX_GetIOSize(${1:MediaItem_Take take}, ${2:int fx}, ${3:int &inputPins}, ${4:int &outputPins})
 endsnippet
 snippet TakeFX_GetNamedConfigParm "TakeFX_GetNamedConfigParm(MediaItem_Take take, int fx, 'parmname', #buf)"
 TakeFX_GetNamedConfigParm(${1:MediaItem_Take take}, ${2:int fx}, ${3:"parmname"}, ${4:#buf})
@@ -1663,14 +1681,20 @@ endsnippet
 snippet TakeFX_GetParamEx "TakeFX_GetParamEx(MediaItem_Take take, int fx, int param, &minval, &maxval, &midval)"
 TakeFX_GetParamEx(${1:MediaItem_Take take}, ${2:int fx}, ${3:int param}, ${4:&minval}, ${5:&maxval}, ${6:&midval})
 endsnippet
+snippet TakeFX_GetParamFromIdent "TakeFX_GetParamFromIdent(MediaItem_Take take, int fx, 'ident_str')"
+TakeFX_GetParamFromIdent(${1:MediaItem_Take take}, ${2:int fx}, ${3:"ident_str"})
+endsnippet
+snippet TakeFX_GetParamIdent "TakeFX_GetParamIdent(MediaItem_Take take, int fx, int param, #buf)"
+TakeFX_GetParamIdent(${1:MediaItem_Take take}, ${2:int fx}, ${3:int param}, ${4:#buf})
+endsnippet
 snippet TakeFX_GetParamName "TakeFX_GetParamName(MediaItem_Take take, int fx, int param, #buf)"
 TakeFX_GetParamName(${1:MediaItem_Take take}, ${2:int fx}, ${3:int param}, ${4:#buf})
 endsnippet
 snippet TakeFX_GetParamNormalized "TakeFX_GetParamNormalized(MediaItem_Take take, int fx, int param)"
 TakeFX_GetParamNormalized(${1:MediaItem_Take take}, ${2:int fx}, ${3:int param})
 endsnippet
-snippet TakeFX_GetPinMappings "TakeFX_GetPinMappings(MediaItem_Take tr, int fx, int isoutput, int pin, optional int &high32)"
-TakeFX_GetPinMappings(${1:MediaItem_Take tr}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:optional int &high32})
+snippet TakeFX_GetPinMappings "TakeFX_GetPinMappings(MediaItem_Take take, int fx, int isoutput, int pin, int &high32)"
+TakeFX_GetPinMappings(${1:MediaItem_Take take}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:int &high32})
 endsnippet
 snippet TakeFX_GetPreset "TakeFX_GetPreset(MediaItem_Take take, int fx, #presetname)"
 TakeFX_GetPreset(${1:MediaItem_Take take}, ${2:int fx}, ${3:#presetname})
@@ -1702,8 +1726,8 @@ endsnippet
 snippet TakeFX_SetParamNormalized "TakeFX_SetParamNormalized(MediaItem_Take take, int fx, int param, value)"
 TakeFX_SetParamNormalized(${1:MediaItem_Take take}, ${2:int fx}, ${3:int param}, ${4:value})
 endsnippet
-snippet TakeFX_SetPinMappings "TakeFX_SetPinMappings(MediaItem_Take tr, int fx, int isoutput, int pin, int low32bits, int hi32bits)"
-TakeFX_SetPinMappings(${1:MediaItem_Take tr}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:int low32bits}, ${6:int hi32bits})
+snippet TakeFX_SetPinMappings "TakeFX_SetPinMappings(MediaItem_Take take, int fx, int isoutput, int pin, int low32bits, int hi32bits)"
+TakeFX_SetPinMappings(${1:MediaItem_Take take}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:int low32bits}, ${6:int hi32bits})
 endsnippet
 snippet TakeFX_SetPreset "TakeFX_SetPreset(MediaItem_Take take, int fx, 'presetname')"
 TakeFX_SetPreset(${1:MediaItem_Take take}, ${2:int fx}, ${3:"presetname"})
@@ -1750,8 +1774,8 @@ endsnippet
 snippet TimeMap2_timeToQN "TimeMap2_timeToQN(ReaProject proj, tpos)"
 TimeMap2_timeToQN(${1:ReaProject proj}, ${2:tpos})
 endsnippet
-snippet TimeMap_curFrameRate "TimeMap_curFrameRate(ReaProject proj, optional bool &dropFrame)"
-TimeMap_curFrameRate(${1:ReaProject proj}, ${2:optional bool &dropFrame})
+snippet TimeMap_curFrameRate "TimeMap_curFrameRate(ReaProject proj, bool &dropFrame)"
+TimeMap_curFrameRate(${1:ReaProject proj}, ${2:bool &dropFrame})
 endsnippet
 snippet TimeMap_GetDividedBpmAtTime "TimeMap_GetDividedBpmAtTime(time)"
 TimeMap_GetDividedBpmAtTime(${1:time})
@@ -1849,8 +1873,8 @@ endsnippet
 snippet TrackFX_GetInstrument "TrackFX_GetInstrument(MediaTrack track)"
 TrackFX_GetInstrument(${1:MediaTrack track})
 endsnippet
-snippet TrackFX_GetIOSize "TrackFX_GetIOSize(MediaTrack track, int fx, optional int &inputPins, optional int &outputPins)"
-TrackFX_GetIOSize(${1:MediaTrack track}, ${2:int fx}, ${3:optional int &inputPins}, ${4:optional int &outputPins})
+snippet TrackFX_GetIOSize "TrackFX_GetIOSize(MediaTrack track, int fx, int &inputPins, int &outputPins)"
+TrackFX_GetIOSize(${1:MediaTrack track}, ${2:int fx}, ${3:int &inputPins}, ${4:int &outputPins})
 endsnippet
 snippet TrackFX_GetNamedConfigParm "TrackFX_GetNamedConfigParm(MediaTrack track, int fx, 'parmname', #buf)"
 TrackFX_GetNamedConfigParm(${1:MediaTrack track}, ${2:int fx}, ${3:"parmname"}, ${4:#buf})
@@ -1873,14 +1897,20 @@ endsnippet
 snippet TrackFX_GetParamEx "TrackFX_GetParamEx(MediaTrack track, int fx, int param, &minval, &maxval, &midval)"
 TrackFX_GetParamEx(${1:MediaTrack track}, ${2:int fx}, ${3:int param}, ${4:&minval}, ${5:&maxval}, ${6:&midval})
 endsnippet
+snippet TrackFX_GetParamFromIdent "TrackFX_GetParamFromIdent(MediaTrack track, int fx, 'ident_str')"
+TrackFX_GetParamFromIdent(${1:MediaTrack track}, ${2:int fx}, ${3:"ident_str"})
+endsnippet
+snippet TrackFX_GetParamIdent "TrackFX_GetParamIdent(MediaTrack track, int fx, int param, #buf)"
+TrackFX_GetParamIdent(${1:MediaTrack track}, ${2:int fx}, ${3:int param}, ${4:#buf})
+endsnippet
 snippet TrackFX_GetParamName "TrackFX_GetParamName(MediaTrack track, int fx, int param, #buf)"
 TrackFX_GetParamName(${1:MediaTrack track}, ${2:int fx}, ${3:int param}, ${4:#buf})
 endsnippet
 snippet TrackFX_GetParamNormalized "TrackFX_GetParamNormalized(MediaTrack track, int fx, int param)"
 TrackFX_GetParamNormalized(${1:MediaTrack track}, ${2:int fx}, ${3:int param})
 endsnippet
-snippet TrackFX_GetPinMappings "TrackFX_GetPinMappings(MediaTrack tr, int fx, int isoutput, int pin, optional int &high32)"
-TrackFX_GetPinMappings(${1:MediaTrack tr}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:optional int &high32})
+snippet TrackFX_GetPinMappings "TrackFX_GetPinMappings(MediaTrack tr, int fx, int isoutput, int pin, int &high32)"
+TrackFX_GetPinMappings(${1:MediaTrack tr}, ${2:int fx}, ${3:int isoutput}, ${4:int pin}, ${5:int &high32})
 endsnippet
 snippet TrackFX_GetPreset "TrackFX_GetPreset(MediaTrack track, int fx, #presetname)"
 TrackFX_GetPreset(${1:MediaTrack track}, ${2:int fx}, ${3:#presetname})
@@ -2095,11 +2125,8 @@ endsnippet
 snippet gfx_arc "gfx_arc(x,y,r,ang1,ang2[,antialias])"
 gfx_arc(${1:x}, ${2:y}, ${3:r}, ${4:ang1}, ${5:ang2[}, ${6:antialias]})
 endsnippet
-snippet gfx_blit "gfx_blit(source, scale, rotation[, srcx, srcy, srcw, srch, destx, desty, destw, desth, rotxoffs, rotyoffs])"
-gfx_blit(${1:source}, ${2:scale}, ${3:rotation[}, ${4:srcx}, ${5:srcy}, ${6:srcw}, ${7:srch}, ${8:destx}, ${9:desty}, ${10:destw}, ${11:desth}, ${12:rotxoffs}, ${13:rotyoffs]})
-endsnippet
-snippet gfx_blit "gfx_blit(source,scale,rotation)"
-gfx_blit(${1:source}, ${2:scale}, ${3:rotation})
+snippet gfx_blit "gfx_blit(source[, scale, rotation, srcx, srcy, srcw, srch, destx, desty, destw, desth, rotxoffs, rotyoffs])"
+gfx_blit(${10:destw}, ${11:desth}, ${12:rotxoffs}, ${13:rotyoffs]}, ${1:source[}, ${2:scale}, ${3:rotation}, ${4:srcx}, ${5:srcy}, ${6:srcw}, ${7:srch}, ${8:destx}, ${9:desty})
 endsnippet
 snippet gfx_blitext "gfx_blitext(source,coordinatelist,rotation)"
 gfx_blitext(${1:source}, ${2:coordinatelist}, ${3:rotation})
@@ -2114,7 +2141,7 @@ snippet gfx_clienttoscreen "gfx_clienttoscreen(x,y)"
 gfx_clienttoscreen(${1:x}, ${2:y})
 endsnippet
 snippet gfx_deltablit "gfx_deltablit(srcimg,srcs,srct,srcw,srch,destx,desty,destw,desth,dsdx,dtdx,dsdy,dtdy,dsdxdy,dtdxdy[,usecliprect=1])"
-gfx_deltablit(${1:srcimg}, ${2:srcs}, ${3:srct}, ${4:srcw}, ${5:srch}, ${6:destx}, ${7:desty}, ${8:destw}, ${9:desth}, ${10:dsdx}, ${11:dtdx}, ${12:dsdy}, ${13:dtdy}, ${14:dsdxdy}, ${15:dtdxdy[}, ${16:usecliprect=1]})
+gfx_deltablit(${10:dsdx}, ${11:dtdx}, ${12:dsdy}, ${13:dtdy}, ${14:dsdxdy}, ${15:dtdxdy[}, ${16:usecliprect=1]}, ${1:srcimg}, ${2:srcs}, ${3:srct}, ${4:srcw}, ${5:srch}, ${6:destx}, ${7:desty}, ${8:destw}, ${9:desth})
 endsnippet
 snippet gfx_dock "gfx_dock(v[,wx,wy,ww,wh])"
 gfx_dock(${1:v[}, ${2:wx}, ${3:wy}, ${4:ww}, ${5:wh]})
@@ -2144,7 +2171,7 @@ snippet gfx_getpixel "gfx_getpixel(r,g,b)"
 gfx_getpixel(${1:r}, ${2:g}, ${3:b})
 endsnippet
 snippet gfx_gradrect "gfx_gradrect(x,y,w,h, r,g,b,a[, drdx, dgdx, dbdx, dadx, drdy, dgdy, dbdy, dady])"
-gfx_gradrect(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:r}, ${6:g}, ${7:b}, ${8:a[}, ${9:drdx}, ${10:dgdx}, ${11:dbdx}, ${12:dadx}, ${13:drdy}, ${14:dgdy}, ${15:dbdy}, ${16:dady]})
+gfx_gradrect(${10:dgdx}, ${11:dbdx}, ${12:dadx}, ${13:drdy}, ${14:dgdy}, ${15:dbdy}, ${16:dady]}, ${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:r}, ${6:g}, ${7:b}, ${8:a[}, ${9:drdx})
 endsnippet
 snippet gfx_init "gfx_init('name'[,width,height,dockstate,xpos,ypos])"
 gfx_init(${1:"name"[}, ${2:width}, ${3:height}, ${4:dockstate}, ${5:xpos}, ${6:ypos]})
@@ -2165,7 +2192,7 @@ snippet gfx_measurestr "gfx_measurestr('str',&w,&h)"
 gfx_measurestr(${1:"str"}, ${2:&w}, ${3:&h})
 endsnippet
 snippet gfx_muladdrect "gfx_muladdrect(x,y,w,h,mul_r,mul_g,mul_b[,mul_a,add_r,add_g,add_b,add_a])"
-gfx_muladdrect(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:mul_r}, ${6:mul_g}, ${7:mul_b[}, ${8:mul_a}, ${9:add_r}, ${10:add_g}, ${11:add_b}, ${12:add_a]})
+gfx_muladdrect(${10:add_g}, ${11:add_b}, ${12:add_a]}, ${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:mul_r}, ${6:mul_g}, ${7:mul_b[}, ${8:mul_a}, ${9:add_r})
 endsnippet
 snippet gfx_printf "gfx_printf('format'[, ...])"
 gfx_printf(${1:"format"[}, ${2:...]})
